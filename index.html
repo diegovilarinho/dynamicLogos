@@ -49,11 +49,7 @@
 
             setInterval(function () {
                 var rand = backImg[Math.floor(Math.random() * backImg.length)];
-                if ($(rand).attr("src") === img[indice]) {
-                    indice++;
-                } else {
-                    $(rand).attr("src", img[++indice]);
-                }
+                $(rand).attr("src", img[++indice]);
                 if (indice > img.length) indice = 0;
             }, 1000);
 
