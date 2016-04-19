@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+        .content {
+            margin-top: 50px;
+        }
+        
+        img {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content col-md-10 col-md-offset-1">
+        <div class="col-md-3">
+            <img src="img/logo-barato.png" alt="">
+        </div>
+        <div class="col-md-3">
+            <img src="img/logo-chaordic.png" alt="">
+        </div>
+        <div class="col-md-3">
+            <img src="img/logo-flexy.png" alt="">
+        </div>
+        <div class="col-md-3">
+            <img src="img/logo-involves.png" alt="">
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var backImg = [];
+            var indice = 0;
+            var img = ["img/logo-barato.png", "img/logo-chaordic.png", "img/logo-flexy.png", "img/logo-involves.png", "img/logo-onyo.png", "img/logo-vieira.png"];
+            $('*').each(function () {
+
+                if ($(this).is('img')) {
+                    backImg.push(this);
+                }
+            });
+
+            setInterval(function () {
+                var rand = backImg[Math.floor(Math.random() * backImg.length)];
+                if ($(rand).attr("src") === img[indice]) {
+                    indice++;
+                } else {
+                    $(rand).attr("src", img[++indice]);
+                }
+                if (indice > img.length) indice = 0;
+            }, 1000);
+
+        })
+    </script>
+
+</body>
+
+</html>
